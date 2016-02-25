@@ -1,0 +1,24 @@
+<ion-view view-title="Deelnemers">
+  <ion-content>
+
+
+
+
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" ng-repeat="deelnemer in deelnemers" type="item-text-wrap" ui-sref="tab.deelnemer({ deelnemerId:deelnemer.id})">
+
+        <img ng-src="http://www.waterwegwerkt.nl{{deelnemer.img}}">
+
+        <h2>{{deelnemer.naam}}</h2>
+        <p>{{deelnemer.adres}}</p>
+
+
+          
+
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

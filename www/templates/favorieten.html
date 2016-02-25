@@ -1,0 +1,81 @@
+<ion-view view-title="Favorieten">
+  <ion-content >
+
+    <ion-refresher
+    pulling-text="Bepaal de route..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
+
+
+
+<div ng-if="favorieten.length == 0">
+
+  <Br><Br>
+<center>
+  <div class="padding">
+<h2 style="font-size:22px;">Nog geen favoriete bedrijven?</h2>
+<h1  style="font-size:15px;">Kies een branche en wij kiezen de bedrijven</h1>
+</div>
+</center>
+<br><Br>
+
+
+    <div ng-click="test();" style="background-image:url('img/haven.jpg'); background-size:cover; margin-bottom:2px;">
+      <div style="background-color:RGBA(0,0,0,0.6); padding:40px;">
+        <center>
+          <h1 style="font-size:40px;color:#FFF;">Haven</h1>
+            <h2 style="font-size:20px;color:#FFF;">Voeg toe aan favorieten</h2>
+        </center>
+      </div>
+    </div>
+
+    <div ng-click="test();" style="background-image:url('img/susan.png'); background-size:cover; margin-bottom:2px;">
+      <div style="background-color:RGBA(0,0,0,0.6); padding:40px;">
+        <center>
+          <h1 style="font-size:40px;color:#FFF;">Cultuur</h1>
+            <h2 style="font-size:20px;color:#FFF;">Voeg toe aan favorieten</h2>
+        </center>
+      </div>
+    </div>
+
+
+    <div ng-click="test();" style="background-image:url('img/Horeca.jpg'); background-size:cover; margin-bottom:2px;">
+      <div style="background-color:RGBA(0,0,0,0.6); padding:40px;">
+        <center>
+          <h1 style="font-size:40px;color:#FFF;">Horeca</h1>
+          <h2 style="font-size:20px;color:#FFF;">Voeg toe aan favorieten</h2>
+
+        </center>
+      </div>
+    </div>
+
+    <div ng-click="test();" style="background-image:url('img/techniek.jpg'); background-size:cover; margin-bottom:2px;">
+      <div style="background-color:RGBA(0,0,0,0.6); padding:40px;">
+        <center>
+          <h1 style="font-size:40px;color:#FFF;">Techniek</h1>
+          <h2 style="font-size:20px;color:#FFF;">Voeg toe aan favorieten</h2>
+
+        </center>
+      </div>
+    </div>
+
+
+
+</div>
+
+    <ion-list>
+      <ion-item class="item-thumbnail-left item-icon-right" ng-repeat="favoriet in favorieten" type="item-text-wrap" ui-sref="tab.favoriet({deelnemerId:favoriet.id})">
+
+        <img ng-src="http://www.waterwegwerkt.nl{{favoriet.img}}">
+
+        <h2>{{favoriet.naam}}</h2>
+        <p>{{favoriet.adres}} </p>
+
+        <p>{{favoriet.afstand}} km</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

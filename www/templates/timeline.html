@@ -1,0 +1,61 @@
+<ion-view view-title="Praat mee">
+  <ion-content >
+    <ion-refresher
+    pulling-text="Zoeken naar nieuwe berichten..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
+
+<div ng-repeat="bericht in berichten" class="message-wrapper">
+
+      <div ng-if="bericht.type == 2">
+
+        <img ng-click="viewProfile(message)" class="profile-pic left"
+              ng-src="http://www.waterwegwerkt.nl{{bericht.foto}}" onerror="onProfilePicError(this)" />
+
+        <div class="chat-bubble left">
+
+            <div class="message">
+              <b>  {{bericht.naam }}</b><br>
+              {{bericht.bericht }}
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div ng-if="bericht.type == 1">
+
+
+        <div class="chat-bubble right">
+
+            <div class="message">
+              {{bericht.bericht }}
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <div class="cf"></div>
+
+</div>
+
+
+
+
+  </ion-content>
+      <ion-footer-bar keyboard-attach class="bar-stable-white item-input-inset">
+
+      <label class="item-input-wrapper">
+        <input type="text" placeholder="Type your message"  ng-model="data.username" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" />
+      </label>
+      <button ng-click="submit(data)" class="button button-clear" ng-click="sendMessage()">
+        Verstuur
+      </button>
+
+
+    </ion-footer-bar>
+</ion-view>

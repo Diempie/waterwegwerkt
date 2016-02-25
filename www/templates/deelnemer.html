@@ -1,0 +1,43 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{deelnemer.name}}">
+  <ion-content>
+    <img ng-src="http://waterwegwerkt.nl/{{deelnemer.img}}" style="width:100%">
+
+
+    <div class="row">
+  <div class="col">
+      <a>
+
+        <i   class="button button-full button-positive" ng-class="{'ion-ios-heart': isActive, 'ion-ios-heart-outline': isnotActive, }"  ng-click="fav()"> Favoriet </i>
+
+  </div>
+  <div class="col">
+  <a ng-click="Bepaalroute();" class="button button-full button-positive"><i class="ion-map"></i>  Bepaal route</a>
+  </div>
+</div>
+
+
+    <div class="padding"><p>
+
+
+      <h2>{{deelnemer.naam}}</h2>
+
+
+
+<span ng-bind-html="deelnemer.omschrijving"></span>
+
+<br><br>
+
+
+
+
+
+    </p>
+  </div>
+  </ion-content>
+</ion-view>
