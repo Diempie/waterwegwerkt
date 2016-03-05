@@ -4,14 +4,15 @@
   <description>
         Waterweg Werkt!
     </description>
-  <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
+  <author email="dimar@themindoffice.nl" href="http://www.themindoffice.nl">
+      Dimar van Overdijk
     </author>
   <content src="index.html"/>
-  <access origin="*"/>
+  <allow-navigation href="*" />
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
+  <preference name="AllowInlineMediaPlayback" value="true"/>
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
@@ -68,4 +69,5 @@
     <splash src="resources/ios/splash/Default~iphone.png" height="480" width="320"/>
   </platform>
   <gap:plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm"/>
+  <gap:plugin name="org.apache.cordova.core.geolocation"/>
 </widget>

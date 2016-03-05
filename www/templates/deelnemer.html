@@ -6,38 +6,26 @@
 -->
 <ion-view view-title="{{deelnemer.name}}">
   <ion-content>
+    <div class="animated fadeIn">
     <img ng-src="http://waterwegwerkt.nl/{{deelnemer.img}}" style="width:100%">
+    <div class="row" style="margin-top:-50px;">
+      <div class="col">
+        <i class="button button-full button-full-option button-positive animated fadeInUp" ng-class="{'ion-ios-heart deelnemerIcon deelnemerIconHeart': isActive, 'ion-ios-heart-outline deelnemerIcon deelnemerIconHeart': isnotActive, }"  ng-click="fav()"></i>
+      </div>
+      <div class="col">
+        <a ng-click="Bepaalroute();" class="button  button-full-option  button-full button-positive animated fadeInUp"><i class="ion-map deelnemerIcon"></i></a>
+      </div>
+      <div class="col">
+        <a ng-click="shareAnywhere();" class="button button-full-option   button-full button-positive animated fadeInUp"><i class="ion-share deelnemerIcon"></i></a>
+      </div>
+    </div>
 
-
-    <div class="row">
-  <div class="col">
-      <a>
-
-        <i   class="button button-full button-positive" ng-class="{'ion-ios-heart': isActive, 'ion-ios-heart-outline': isnotActive, }"  ng-click="fav()"> Favoriet </i>
-
-  </div>
-  <div class="col">
-  <a ng-click="Bepaalroute();" class="button button-full button-positive"><i class="ion-map"></i>  Bepaal route</a>
-  </div>
-</div>
-
-
-    <div class="padding"><p>
-
-
-      <h2>{{deelnemer.naam}}</h2>
-
-
-
-<span ng-bind-html="deelnemer.omschrijving"></span>
-
-<br><br>
-
-
-
-
-
-    </p>
-  </div>
+    <div class="padding">
+      <p>
+        <h2>{{deelnemer.naam}}</h2>
+        <span ng-bind-html="deelnemer.omschrijving"></span>
+        <br><br>
+      </p>
+    </div>
   </ion-content>
 </ion-view>

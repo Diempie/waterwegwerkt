@@ -3,10 +3,12 @@
 
 
 
-
+<div  ui-sref="tab.informatie()" class="aanmelden">
+  Met uw bedrijf ook op en 28 mei?
+</div>
 
     <ion-list>
-      <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" ng-repeat="deelnemer in deelnemers" type="item-text-wrap" ui-sref="tab.deelnemer({ deelnemerId:deelnemer.id})">
+      <ion-item class="item-remove-animate  item-thumbnail-left item-icon-right" ng-repeat="deelnemer in deelnemers" type="item-text-wrap" ui-sref="tab.deelnemer({ deelnemerId:deelnemer.id})">
 
         <img ng-src="http://www.waterwegwerkt.nl{{deelnemer.img}}">
 
@@ -14,7 +16,7 @@
         <p>{{deelnemer.adres}}</p>
 
 
-          
+
 
         <i class="icon ion-chevron-right icon-accessory"></i>
 

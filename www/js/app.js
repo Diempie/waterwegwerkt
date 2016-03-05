@@ -15,7 +15,8 @@ angular.module('starter', ['ionic','ionic.service.core','ionic.service.analytics
 })
 .run(function($ionicPlatform, $ionicAnalytics) {
   $ionicPlatform.ready(function() {
-  
+
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -27,7 +28,6 @@ angular.module('starter', ['ionic','ionic.service.core','ionic.service.analytics
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-
 
 
 
@@ -99,6 +99,16 @@ angular.module('starter', ['ionic','ionic.service.core','ionic.service.analytics
         }
       }
     })
+
+    .state('tab.vacatures', {
+          url: '/vacatures',
+          views: {
+            'tab-vacatures': {
+              templateUrl: 'templates/vacatures.html',
+              controller: 'vacaturesCtrl'
+            }
+          }
+        })
     .state('tab.informatie', {
       url: '/informatie',
       views: {

@@ -8,12 +8,33 @@ angular.module('starter.controllers', [])
   };
 
 })
-.controller('informatieCtrl', function($scope, $http,$rootScope,$cordovaGeolocation,$ImageCacheFactory) {
+.controller('informatieCtrl', function($scope, $http,$rootScope) {
 
 })
+.controller('vacaturesCtrl', function($scope, $http,$rootScope,$timeout) {
+    document.onclick = function (e) {
+             e = e ||  window.event;
+             var element = e.target || e.srcElement;
+
+             if (element.tagName == 'A') {
+                 window.open(element.href, "_blank", "location=yes");
+                 return false; // prevent default action and stop event propagation
+             }
+         };
+
+    $http.get('http://waterwegwerkt.nl/controllers/api_vacatures').then(function(res){ $scope.deelnemers = res.data;});
+
+    $scope.doRefresh = function() {
+          $http.get('http://waterwegwerkt.nl/controllers/api_vacatures').then(function(res){ $scope.deelnemers = res.data;});
+
+          $scope.$broadcast('scroll.refreshComplete');
+      };
+})
+
+
 .controller('homeCtrl', function($scope, $http,$rootScope,$cordovaGeolocation,$ImageCacheFactory) {
 
-
+  window.ionic.Platform.ready(function() {
         $cordovaGeolocation.getCurrentPosition({timeout: 10000, enableHighAccuracy: false}).then(function (position) {
           var lat  = position.coords.latitude
           var long = position.coords.longitude
@@ -21,17 +42,7 @@ angular.module('starter.controllers', [])
           $rootScope.lat = lat;
         });
 
-        $http.get('http://waterwegwerkt.nl/controllers/api_deelnemers').then(function(res){
-
-          var deelnemers = res.data;
-          var images = [];
-          for(var i=0; i<deelnemers.length;i++){
-			        images.push('http://www.waterwegwerkt.nl' + deelnemers[i].img);
-              images.push('http://www.waterwegwerkt.nl' + deelnemers[i].img_header);
-		        }
-            $ImageCacheFactory.Cache(images);
-        });
-
+  });
 })
 
 .controller('bedrijfCtrl', function($state,$scope,$http,$localstorage) {
@@ -86,7 +97,7 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('deelnemersCtrl', function($scope, Chats,$http) {
+.controller('deelnemersCtrl', function($scope,$http) {
   $http.get('http://waterwegwerkt.nl/controllers/api_deelnemers').then(function(res){
     $scope.deelnemers = res.data;
   });
@@ -119,7 +130,7 @@ angular.module('starter.controllers', [])
 }])
 
 
-.controller('deelnemerCtrl', function($scope,$rootScope, $stateParams, Chats, $http,$localstorage,$cordovaGeolocation) {
+.controller('deelnemerCtrl', function($scope,$rootScope, $stateParams, $http,$localstorage,$cordovaGeolocation,$cordovaSocialSharing) {
   var Lat;
   var Lng;
 
@@ -127,7 +138,13 @@ angular.module('starter.controllers', [])
     $scope.deelnemer = res.data;
     Lat = res.data.lat;
     Lng = res.data.lng;
+
+    $scope.shareAnywhere = function() {
+          $cordovaSocialSharing.share(res.data.naam, res.data.naam, "http://www.waterwegwerkt.nl" + res.data.img, "http://www.waterwegwerkt.nl/deelnemer/" + res.data.url);
+    }
   });
+
+
 
 
     $scope.Bepaalroute = function(){
@@ -135,10 +152,10 @@ angular.module('starter.controllers', [])
         [Lat, Lng],
         null,
         function(){
-          //  alert("Plugin success");
+
         },
         function(error){
-          //  alert("Plugin error: "+ error);
+
         });
 
     };
@@ -189,7 +206,10 @@ angular.module('starter.controllers', [])
 })
 
 .controller('favorietenCtrl', function($rootScope,$scope,$cordovaGeolocation,$http,$localstorage,$ionicScrollDelegate) {
-  if ($localstorage.get('favorieten','nietgezet') == 'nietgezet'){
+
+
+
+if ($localstorage.get('favorieten','nietgezet') == 'nietgezet'){
     var favorieten = [];
     $localstorage.set("favorieten",JSON.stringify(favorieten));
     $scope.doRefresh();
@@ -233,6 +253,14 @@ $scope.test = function() {
 
 
   $scope.$on("$ionicView.enter", function () {
+    console.log('test');
+$ionicScrollDelegate.scrollTop(0,0,true);
+    $cordovaGeolocation.getCurrentPosition({timeout: 10000, enableHighAccuracy: false}).then(function (position) {
+      var lat  = position.coords.latitude
+      var long = position.coords.longitude
+      $rootScope.lng = long;
+      $rootScope.lat = lat;
+    });
 
 
       if ($localstorage.get('favorieten','nietgezet') != 'nietgezet'){

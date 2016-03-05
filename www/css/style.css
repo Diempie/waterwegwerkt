@@ -1,11 +1,15 @@
 /* Empty. Add your own CSS if you like */
-h1{font-family: 'Quicksand'; font-size: 18px; font-weight: bold;color:#007fac;}
+h1{font-family: 'Quicksand'; font-size: 30px; font-weight: bold;color:#007fac;}
 h3{font-family: 'Quicksand'; font-size: 25px; font-weight: bold;color:#007fac;}
 h2{font-family: 'Quicksand'; font-size: 40px; font-weight: bold !important;color:#007fac;}
 
+.aanmelden{font-family: 'Quicksand'; font-size: 20px;color:#FFFFFF;background-color:#007fac;padding:15px;}
+
 .tabs , .bar-stable, .button-positive{color:#FFF;background-color:#007fac !important; color:#FFF}
 .icon,.header-item, .tab-title{color:#FFF !important}
-
+.deelnemerIcon{font-size: 37px;}
+.deelnemerIconHeart{padding-top: 4px; padding-bottom: 3px;}
+.button-full-option{border:3px solid #eeeeee !important; border-radius: 10px}
 .scroll-bar-indicator
 {
 	display: none;

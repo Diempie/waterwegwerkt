@@ -6,26 +6,30 @@ navigation history that also transitions its views in and out.
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 
   <!-- Dashboard Tab -->
-  <ion-tab title="Home"  icon-off="ion-ios-home" icon-on="ion-ios-home" href="#/tab/home">
+  <ion-tab class="animated fadeInUp" title="Home"  icon-off="ion-ios-home" icon-on="ion-ios-home" href="#/tab/home">
     <ion-nav-view name="tab-home"></ion-nav-view>
   </ion-tab>
 
   <!-- Chats Tab -->
-  <ion-tab title="Deelnemers" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" ui-sref="tab.deelnemers">
+  <ion-tab class="animated fadeInUp" title="Deelnemers" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" ui-sref="tab.deelnemers">
     <ion-nav-view name="tab-deelnemers"></ion-nav-view>
   </ion-tab>
 
   <!-- Account Tab -->
-  <ion-tab title="Favorieten"  icon-off="ion-ios-heart-outline" icon-on="ion-ios-heart" ui-sref="tab.favorieten">
+  <ion-tab class="animated fadeInUp" title="Favorieten"  icon-off="ion-ios-heart-outline" icon-on="ion-ios-heart" ui-sref="tab.favorieten">
     <ion-nav-view name="tab-favorieten"></ion-nav-view>
   </ion-tab>
 
-  <ion-tab title="Informatie" icon-off="ion-ios-information-outline" icon-on="ion-ios-information" ui-sref="tab.informatie">
-    <ion-nav-view name="tab-informatie"></ion-nav-view>
+
+
+  <ion-tab class="animated fadeInUp" title="Vacatures" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes"  ui-sref="tab.vacatures">
+    <ion-nav-view name="tab-vacatures"></ion-nav-view>
   </ion-tab>
 
-  <ion-tab title="Praat mee" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/timeline">
-    <ion-nav-view name="tab-timeline"></ion-nav-view>
-  </ion-tab>
+
+    <ion-tab class="animated fadeInUp" title="Informatie" icon-off="ion-ios-information-outline" icon-on="ion-ios-information" ui-sref="tab.informatie">
+      <ion-nav-view name="tab-informatie"></ion-nav-view>
+    </ion-tab>
+
 
 </ion-tabs>
